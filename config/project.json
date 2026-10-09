@@ -1,0 +1,52 @@
+{
+  "name": "Production AI Observability Monitor",
+  "problem": "Production AI teams need trace-level signals for latency, token growth, tool failures, and low-quality outputs.",
+  "domain": "ai-observability",
+  "architecture": "classifier",
+  "hugging_face_tasks": [
+    "text-classification",
+    "token-classification",
+    "summarization",
+    "zero-shot-classification"
+  ],
+  "recommended_stack": [
+    "OpenTelemetry GenAI semantic conventions",
+    "OpenTelemetry Collector for vendor-neutral ingestion",
+    "ClickHouse or PostgreSQL for trace analytics",
+    "Prometheus and Grafana for service-level metrics",
+    "MLflow for model and prompt version linkage",
+    "FastAPI for trace search and regression APIs"
+  ],
+  "real_world_data_sources": [
+    {
+      "name": "Prometheus HTTP API",
+      "url": "https://prometheus.demo.do.prometheus.io/api/v1/query?query=up",
+      "purpose": "Real time-series telemetry for anomaly pipelines"
+    },
+    {
+      "name": "GitHub Events API",
+      "url": "https://api.github.com/events?per_page=10",
+      "purpose": "Deployment-correlated public event metadata"
+    }
+  ],
+  "job_description_skills": [
+    "LLMOps observability and trace instrumentation",
+    "Prompt, model, dataset, and deployment lineage",
+    "SLOs, anomaly detection, and incident diagnostics",
+    "High-volume telemetry storage and aggregation",
+    "Evaluation-driven production monitoring"
+  ],
+  "impact_targets": [
+    "Ingest 1,000 synthetic traces/second without loss",
+    "Detect seeded latency and quality regressions with >= 0.90 precision",
+    "Link 100% of traces to model, prompt, and dataset versions",
+    "Generate a release health report in under 60 seconds"
+  ],
+  "baseline_evaluation": {
+    "test_examples": 4,
+    "accuracy": 1,
+    "synthetic_evaluation": true
+  },
+  "estimated_delivery": "8-12 weeks for one engineer",
+  "generated_baseline_is_production_ready": false
+}
